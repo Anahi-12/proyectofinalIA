@@ -135,9 +135,7 @@ Esto mantiene separadas las consultas realizadas mediante inteligencia artificia
 
 ## 🧪 Datos de demostración para probar el asistente
 
-La siguiente tabla reúne los valores definidos en las semillas SQL locales del catálogo (`database/migrations/005_seed_demo_catalogs.sql`) y de demostración del asistente (`database/seeds/agent_demo_data.sql`). **No es una lectura de la base de datos en vivo**: no se consultó Azure ni se ejecutaron scripts. Si la base de datos contiene otros registros o existencias previas, estos no aparecen aquí.
-
-La semilla de demostración define 10 entradas confirmadas. Las cantidades de la tabla son las que define esa semilla; si ya existe un saldo para el mismo lote, el script suma la cantidad al saldo. Las fechas de caducidad indicadas se calculan como días a partir de la fecha UTC en que se ejecuta la semilla.
+La siguiente tabla reúne los valores predefinidos en el catálogo de SQL para la demostración del asistente. El catálogo de demostración define 10 entradas confirmadas.
 
 ### Catálogo de materiales
 
@@ -186,45 +184,18 @@ Con estos registros puedes probar consultas permitidas como:
 - “¿Qué lotes de azúcar están disponibles?”
 - “¿Hay entradas pendientes de revisión?”
 
-Los resultados dependen de que la semilla de demostración se haya aplicado a la base utilizada por la aplicación. Esta documentación solo describe los valores del archivo SQL; **no ejecuté la semilla ni hice llamadas a Azure**, por lo que no confirma el contenido actual de ninguna base.
+Los resultados dependen de que la semilla de demostración se haya aplicado a la base utilizada por la aplicación.
 
-## 🛠️ Instalación y Uso Local
+## 🎯 Conclusión
 
-### Requisitos
+El desarrollo de **Frutalia SmartStock** representó para mí un reto importante, no solamente desde el punto de vista técnico, sino también personal. Durante el periodo destinado al proyecto atravesé diversas dificultades que redujeron considerablemente el tiempo que pude dedicar a su desarrollo. A pesar de estas circunstancias, logré retomar la propuesta, definir un alcance viable y llevarla hasta un MVP funcional en varios de sus componentes principales.
 
-- **Node.js 24 o superior**, según `package.json`.
-- **npm**.
-- La interfaz básica y `/health` pueden iniciarse sin conectar los servicios externos. La extracción y las consultas del asistente requieren la configuración y disponibilidad de los servicios correspondientes.
+Uno de los aspectos más valiosos del proyecto fue la oportunidad de experimentar de manera práctica con distintas herramientas de inteligencia artificial. La IA no estuvo presente únicamente como una funcionalidad dentro de Frutalia SmartStock, sino también como una herramienta de apoyo durante su desarrollo. Esto me permitió explorar diferentes formas de utilizarla para analizar problemas, estructurar ideas, definir componentes, apoyar el desarrollo de la aplicación y comprender mejor la integración entre distintos servicios.
 
-### Clonar e instalar
+El proyecto también representó un acercamiento mucho más práctico al ecosistema de **Microsoft Azure**. Durante el desarrollo aprendí que trabajar con servicios en la nube implica no solamente conocer su configuración e integración, sino también administrar adecuadamente los recursos disponibles. Las diferentes pruebas y llamadas realizadas a los servicios fueron consumiendo progresivamente los créditos de Azure asignados al proyecto, hasta limitar la posibilidad de continuar utilizando algunos de ellos.
 
-Este directorio no tiene una URL de Git remoto configurada. Sustituye `URL_DEL_REPOSITORIO` por la URL proporcionada por quien comparta el proyecto:
+Si bien el resultado final no incluye todas las funcionalidades originalmente planteadas en estado operativo, considero significativo haber logrado construir y levantar el proyecto dentro de las condiciones y el tiempo disponibles. Frutalia SmartStock me permitió pasar de una idea inicial a una solución estructurada, integrar diferentes tecnologías y comprobar de forma práctica varias aplicaciones de la inteligencia artificial.
 
-```bash
-git clone URL_DEL_REPOSITORIO frutalia-smartstock
-cd frutalia-smartstock
-npm ci
-```
+Más allá del resultado técnico, este proyecto me deja un aprendizaje importante sobre adaptación, administración de recursos y resolución de problemas. También me permitió identificar con mayor claridad aspectos que en un futuro abordaría de manera diferente, como la planeación del consumo de servicios en la nube y la optimización de las pruebas.
 
-### Configurar y ejecutar en desarrollo
-
-Configura `.env` con los valores de tu entorno. No incluyas credenciales en el repositorio.
-
-```bash
-cp .env.example .env
-npm run dev
-```
-
-El servidor de desarrollo utiliza `tsx watch src/server.ts`. Con `PORT=3000`, el endpoint de salud está disponible en `http://localhost:3000/health`.
-
-### Otros comandos disponibles
-
-```bash
-npm run lint
-npm run typecheck
-npm test
-npm run build
-npm start
-```
-
-`npm start` ejecuta la versión compilada en `dist/server.js`; ejecuta antes `npm run build`. Las migraciones se ejecutan explícitamente con `npm run db:migrate`, usando una identidad autorizada; no se aplican automáticamente al iniciar el servidor.
+Finalmente, considero que uno de los principales logros de este proyecto fue haber continuado avanzando a pesar de las dificultades encontradas. El resultado obtenido representa no solo lo que fue posible desarrollar técnicamente, sino también el conocimiento adquirido a lo largo del proceso. Me llevo una comprensión mucho más amplia sobre inteligencia artificial, desarrollo e integración de servicios en Azure y, sobre todo, la experiencia de haber enfrentado un proyecto complejo, adaptarlo a las circunstancias y llevarlo hasta un resultado concreto.
